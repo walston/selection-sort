@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sorting Algorithms</title>
+
+    <script type="text/javascript" charset="utf-8">
+    var arrays = {
+      practice_list: [3,5,1,7,9,2,6]
+    };
+    </script>
+
+    <script src="selection.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <p>
+      Hello. We're going to be testing out a sorting algorithms here. please click the button below.
+      if you'd like to view the source code, <a href="selection.js">it's available here</a>.
+    </p>
+    <p>
+      <input id="selection" type="button" name="name" value="Selection Sort">
+    </p>
+
+    <div id="print"></div>
+
+    <script type="text/javascript">
+      var printer = document.getElementById('print');
+
+      function clear(node) {
+        console.log('clearing', node);
+        while (node.firstChild) {
+          node.removeChild(node.firstChild);
+        }
+      }
+
+      function log(string) {
+        for (var i = 0; i < arguments.length; i++) {
+          var p = document.createElement('p');
+          var code = document.createElement('code');
+          var text = document.createTextNode(string);
+          p.appendChild(code);
+          code.appendChild(text);
+          printer.appendChild(p);
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      document.getElementById('selection').addEventListener('click', function() {
+        clear(printer);
+        selection(arrays['practice_list'], log);
+      });
+    </script>
+  </body>
+</html>
